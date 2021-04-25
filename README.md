@@ -32,3 +32,12 @@ cd vzlogger
 ./install.sh
 
 ````
+
+
+## Debug Opions
+
+Run vzlogger in shell to see any erros 
+
+````
+vzlogger -c /etc/vzlogger.conf
+````
