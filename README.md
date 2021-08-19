@@ -106,7 +106,7 @@ and you should see something that looks like this...
 [Aug 12 15:23:55][mtr0] Reading: id=1-0:16.7.0*255/ObisIdentifier:1-0:16.7.0*255 value=363.00 ts=1628774635968
 ````
 
-... ok, bunch of crtyptic stuff. What now?
+... ok, bunch of cryptic stuff. What now?
 
 Lets break down the information we can see. 
 
