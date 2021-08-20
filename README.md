@@ -1,7 +1,6 @@
 # smart_meter_setup
 Since Energy Monitoring is a very big topic itself, I will try to pull all information on how to
 
-* Integrate into Homeassistant
 * Technical Setup
 * Usage of Energy Data
 * and everything else that might be important
@@ -21,7 +20,7 @@ In my case I went with option 2 but I will also have a writeup for option 3 with
 
 To collect the usage information via the optical gateway and translate the SML data into something useable I went ahead and setup [Volkszähler](https://wiki.volkszaehler.org/howto/raspberry_pi_image) on an old RasPi.
 
-## Setup VZLOGGER (Not needed with RasPi Image
+## Setup VZLOGGER (Not needed when using the RaspberryPi Image)
 
 Install needed stuff 
 ````
@@ -52,7 +51,7 @@ If the data looks unreadable you meter returns the data in the SML Format
 
 ## Volkszähler configuration 
 
-After the basic setup of Volkszähler is done, it is time to dive into the details and pull live data from the meter and see what we can do. 
+After you have installed Volkszähler on your Raspberry it is time to start the configuration 
 
 #### Checking for Data
 To see what information is send from the smart meter we will open up a shell into the raspberry and start configuration of **vzlogger**
@@ -62,7 +61,7 @@ To see what information is send from the smart meter we will open up a shell int
 sudo nano /etc/vzlogger.conf
 ````
 
-and enter the following configuration
+and enter the following basic configuration
 
 ````shell
 {
