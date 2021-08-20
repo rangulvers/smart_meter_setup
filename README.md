@@ -110,10 +110,12 @@ and you should see something that looks like this...
 Lets break down the information we can see. 
 
 [Aug 12 15:23:55] -> Date of collected data
+
 [mtr0] -> ID of the meter we have configured before
+
 Reading: id=1-0:1.8.0*255/ObisIdentifier:1-0:1.8.0*255 value=6864421.20 ts=1628774635968 -> OBIS ID, the collected value and the timestamp 
 
-1-0:1.8.0*255 is the OBIS ID for the conusmed energy. See the OBIS Reference for more details
+1-0:1.8.0*255 is the OBIS ID for the conusmed energy. See the [OBIS Reference](https://de.wikipedia.org/wiki/OBIS-Kennzahlen) for more details
 
 ### Channle configuration 
 
