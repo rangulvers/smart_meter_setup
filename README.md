@@ -7,6 +7,14 @@ Since Energy Monitoring is a very big topic itself, I will try to pull all infor
 
 into this section.
 
+## Used Hardware 
+
+Raspberry PI 4 
+DIN Rail
+5V Energy Supply 
+Those three can be bought in a [bundle](https://www.reichelt.de/raspberry-pi-4b-4gb-inkl-hutschienen-gehaeuse-zubehoer-rpi4-bdl-4gb-din-p292819.html?&trstct=vrt_pdn&nbc=1)
+[Optokopf](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
+
 ## Technical Setup
 In order to connect my energy meter to my Homeassistant installation I had to figure out a way to get the data off the meter and into the system. There are a couple of option
 
