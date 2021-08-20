@@ -144,6 +144,17 @@ After you have finshed the configuration, open you browser and navigate back to 
 
 ![image](https://user-images.githubusercontent.com/5235430/130194045-228a61c2-ab34-45d6-a24a-f813d8f85842.png)
 
+
+# Hardware Setup
+
+To collect the information from the meter I have connected a [Optokopf](https://shop.weidmann-elektronik.de/index.php?page=product&info=24) to the optical output of the meter. 
+
+![image](https://user-images.githubusercontent.com/5235430/130195458-b450b9f2-91e7-49ee-b431-72304f5806dd.png)
+
+Since I wanted everything to be housed within the breaker box I added a 5V power supply and a DIN Rail case for the Raspberry
+
+![image](https://user-images.githubusercontent.com/5235430/130195208-201f0238-2dce-4dcb-bfc6-be695357eff0.png)
+
 # Debug Opions
 
 Run vzlogger in shell to see any erros 
