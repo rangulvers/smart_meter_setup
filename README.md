@@ -135,6 +135,15 @@ sudo nano /etc/vzlogger.conf
 
 The UUID you will need to create with the [middelware](https://wiki.volkszaehler.org/software/middleware/einrichtung#kanaele_im_frontend_anlegen)
 
+![image](https://user-images.githubusercontent.com/5235430/130194359-abce6a13-2d94-4e85-ac1a-a6f018158a42.png)
+
+
+## Using the Data
+
+After you have finshed the configuration, open you browser and navigate back to your Volkszähler Url. This time you should see the usage data based on you configuration. 
+
+![image](https://user-images.githubusercontent.com/5235430/130194045-228a61c2-ab34-45d6-a24a-f813d8f85842.png)
+
 # Debug Opions
 
 Run vzlogger in shell to see any erros 
