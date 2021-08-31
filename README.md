@@ -57,7 +57,7 @@ Test output from serial
 cat /dev/ttyUSB0
 ```
 
-If the data looks unreadable you meter returns the data in the SML Format
+If the data looks unreadable, your meter returns the data in the SML Format
 
 ## Volkszähler configuration 
 
