@@ -9,7 +9,7 @@ into this section.
 
 ```mermaid
 
-flowchart LR
+flowchart TB
         subgraph Energy
         A(Energy Meter) ---> B(OPTO HEAD)        
         end
