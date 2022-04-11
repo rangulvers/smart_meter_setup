@@ -11,10 +11,10 @@ into this section.
 
 flowchart LR
         A(Energy Meter) ---> B(OPTO HEAD)
-        subgraph RaspberryPI
-        B --USB--> C(Volkszähler)
+        subgraph Volkszähler
+        B --USB--> C(RaspberryPI)
         end
-        subgraph RaspberryPI
+        subgraph Homeassistant
         C -.MQTT.-> D(Home Assistant)
         end
         
