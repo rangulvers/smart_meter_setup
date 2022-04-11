@@ -11,6 +11,8 @@ into this section.
 
 flowchart TD
         A(Energy Meter) --- B(OPTO)
+        B --- C(Raspberry PI)
+        C -.MQTT.-> D(Home Assistant)
 
 ```
 
