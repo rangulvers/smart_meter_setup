@@ -14,6 +14,7 @@ flowchart LR
         subgraph RaspberryPI
         B --USB--> C(Volkszähler)
         C -.MQTT.-> D(Home Assistant)
+        end
         
 ```
 
