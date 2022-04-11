@@ -7,6 +7,13 @@ Since Energy Monitoring is a very big topic itself, I will try to pull all infor
 
 into this section.
 
+```mermaid
+
+flowchart TD
+        A(Energy Meter) --- B(OPTO)
+
+```
+
 ## Used Hardware 
 
 * Raspberry PI 4 
