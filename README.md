@@ -23,7 +23,7 @@ flowchart TB
         E(Desktop)
         F(Mobile)
         end
-        clients ---> sub2
+        clients -...-> D(Home Assistant)
         
 ```
 
