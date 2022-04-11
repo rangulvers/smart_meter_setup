@@ -20,8 +20,8 @@ flowchart TB
         C -.MQTT.-> D(Home Assistant)
         end
         subgraph clients
-        E(Desktop) ---> D(Home Assistant)
-        F(Mobile) ---> D(Home Assistant)
+        E(Desktop) ---> sub2
+        F(Mobile) ---> sub2
         end
         
 ```
