@@ -9,9 +9,9 @@ into this section.
 
 ```mermaid
 
-flowchart TD
-        A(Energy Meter) --- B(OPTO)
-        B --- C(Raspberry PI)
+flowchart LR
+        A(Energy Meter) ---> B(OPTO)
+        B --USB--> C(Raspberry PI)
         C -.MQTT.-> D(Home Assistant)
 
 ```
