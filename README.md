@@ -10,7 +10,9 @@ into this section.
 ```mermaid
 
 flowchart LR
+        subgraph Energy
         A(Energy Meter) ---> B(OPTO HEAD)        
+        end
         subgraph Volkszähler
         B --USB--> C(RaspberryPI)
         end
