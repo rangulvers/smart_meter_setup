@@ -9,12 +9,13 @@ into this section.
 
 ```mermaid
 
-flowchart TB
+flowchart LR
         subgraph Energy
         A(Energy Meter) ---> B(OPTO HEAD)        
         end
         subgraph sub1 [Raspberry PI I]
         B --USB--> C(Volkszähler)
+        C(Volkszähler) -...-> db1[(Database)]
         end
         subgraph sub2 [RaspberryPI II]
         C -.MQTT.-> D(Home Assistant)
