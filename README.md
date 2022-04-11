@@ -13,10 +13,10 @@ flowchart TB
         subgraph Energy
         A(Energy Meter) ---> B(OPTO HEAD)        
         end
-        subgraph RaspberryPI I
+        subgraph sub1 [Raspberry PI I]
         B --USB--> C(Volkszähler)
         end
-        subgraph RaspberryPI II
+        subgraph sub2 [RaspberryPI II]
         C -.MQTT.-> D(Home Assistant)
         end
         subgraph clients
