@@ -19,6 +19,10 @@ flowchart LR
         subgraph RaspberryPI II
         C -.MQTT.-> D(Home Assistant)
         end
+        subgraph clients
+        E(Desktop) ---> D(Home Assistant)
+        F(Mobile) ---> D(Home Assistant)
+        end
         
 ```
 
