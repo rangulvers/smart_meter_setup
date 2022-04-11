@@ -10,10 +10,11 @@ into this section.
 ```mermaid
 
 flowchart LR
-        A(Energy Meter) ---> B(OPTO)
-        B --USB--> C(Raspberry PI)
+        A(Energy Meter) ---> B(OPTO HEAD)
+        subgraph RaspberryPI
+        B --USB--> C(Volkszähler)
         C -.MQTT.-> D(Home Assistant)
-
+        
 ```
 
 ## Used Hardware 
