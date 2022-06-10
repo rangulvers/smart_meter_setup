@@ -1,11 +1,19 @@
-# smart_meter_setup
-Since Energy Monitoring is a very big topic itself, I will try to pull all information on how to
+# Setup Volkszähler on a RasPI
+In order to connect my energy meter to my Homeassistant installation I had to figure out a way to get the data off the meter and into the system. There are a couple of option
+
+1. Get a real smart meter that offers some form of API or cloud service that you can use
+2. Pull the information from the optical gateway that sends the data in the SML format
+3. count the number of impulses on the interface
+
+In my case I went with option 2 but I will also have a writeup for option 3 with the use of ESPHome soon
+
+Energy Monitoring comes with a lot of different aspects. This Repo is aimed to provied an easy to follow guide on how to setup [Volkszähler](https://www.volkszaehler.org/) on a Raspberry PI. This will be split into the following sections
 
 * Technical Setup
 * Usage of Energy Data
 * and everything else that might be important
 
-into this section.
+## Connection Diagramm
 
 ```mermaid
 
@@ -29,27 +37,21 @@ flowchart LR
 ```
 
 ## Used Hardware 
-
+* [Optokopf](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
 * Raspberry PI 4 
 * DIN Rail
 * 5V Energy Supply 
 
-Those three can be bought in a [bundle](https://www.reichelt.de/raspberry-pi-4b-4gb-inkl-hutschienen-gehaeuse-zubehoer-rpi4-bdl-4gb-din-p292819.html?&trstct=vrt_pdn&nbc=1)
-
-* [Optokopf](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
 
 ## Technical Setup
-In order to connect my energy meter to my Homeassistant installation I had to figure out a way to get the data off the meter and into the system. There are a couple of option
 
-1. Get a real smart meter that offers some form of API or cloud service that you can use
-2. Pull the information from the optical gateway that sends the data in the SML format
-3. count the number of impulses on the interface
+To collect the information from the meter I have connected a [Optokopf](https://shop.weidmann-elektronik.de/index.php?page=product&info=24) to the optical output of the meter. 
 
-In my case I went with option 2 but I will also have a writeup for option 3 with the use of ESPHome soon
+![image](https://user-images.githubusercontent.com/5235430/130195458-b450b9f2-91e7-49ee-b431-72304f5806dd.png)
 
-### Volkszähler installation
+Since I wanted everything to be housed within the breaker box I added a 5V power supply and a DIN Rail case for the Raspberry
 
-To collect the usage information via the optical gateway and translate the SML data into something useable I went ahead and setup [Volkszähler](https://wiki.volkszaehler.org/howto/raspberry_pi_image) on an old RasPi.
+![image](https://user-images.githubusercontent.com/5235430/130195208-201f0238-2dce-4dcb-bfc6-be695357eff0.png)
 
 ## Setup VZLOGGER (Not needed when using the RaspberryPi Image)
 
@@ -80,19 +82,20 @@ cat /dev/ttyUSB0
 
 If the data looks unreadable, your meter returns the data in the SML Format
 
-## Volkszähler configuration 
+## Volkszähler
 
-After you have installed Volkszähler on your Raspberry it is time to start the configuration 
+### Installation
 
-#### Checking for Data
-To see what information is send from the smart meter we will open up a shell into the raspberry and start configuration of **vzlogger**
+To collect the usage information via the optical gateway and translate the SML data into something useable I went ahead and setup [Volkszähler](https://wiki.volkszaehler.org/howto/raspberry_pi_image) on an old RasPi. After you have installed the image it is time to start he configuration 
 
+### Checking for Data
+To see if and what information is send from the smart meter we will open up a shell into the raspberry and start configuration of **vzlogger**
 
 ````shell
 sudo nano /etc/vzlogger.conf
 ````
 
-and enter the following basic configuration
+and enter the following basic configuration. You can also make use of the [vzlogger.conf Editor](http://volkszaehler.github.io/vzlogger/)
 
 ````shell
 {
@@ -116,7 +119,7 @@ and enter the following basic configuration
         }
 ]}
 ````
-now we need to restart vzlogger 
+now we need to restart vzlogger. I had to do this a couple of times 🤷‍♂️
 
 ````shell
 sudo systemctl stop vzlogger
@@ -136,15 +139,16 @@ and you should see something that looks like this...
 [Aug 12 15:23:55][mtr0] Reading: id=1-0:16.7.0*255/ObisIdentifier:1-0:16.7.0*255 value=363.00 ts=1628774635968
 ````
 
-... ok, bunch of cryptic stuff. What now?
+Great! Now you can read your power consumption 👍.
+But it still looks somewhat cryptic. What now?
 
 Lets break down the information we can see. 
 
-[Aug 12 15:23:55] -> Date of collected data
+**[Aug 12 15:23:55]** -> Date of collected data
 
-[mtr0] -> ID of the meter we have configured before
+**[mtr0]** -> ID of the meter we have configured before
 
-Reading: id=1-0:1.8.0*255/ObisIdentifier:1-0:1.8.0*255 value=6864421.20 ts=1628774635968 -> OBIS ID, the collected value and the timestamp 
+**Reading: id=1-0:1.8.0*255/ObisIdentifier:1-0:1.8.0*255 value=6864421.20 ts=1628774635968** -> OBIS ID, the collected value and the timestamp 
 
 1-0:1.8.0*255 is the OBIS ID for the conusmed energy. See the [OBIS Reference](https://de.wikipedia.org/wiki/OBIS-Kennzahlen) for more details
 
@@ -178,20 +182,14 @@ After you have finshed the configuration, open you browser and navigate back to 
 ![image](https://user-images.githubusercontent.com/5235430/130194045-228a61c2-ab34-45d6-a24a-f813d8f85842.png)
 
 
-# Hardware Setup
 
-To collect the information from the meter I have connected a [Optokopf](https://shop.weidmann-elektronik.de/index.php?page=product&info=24) to the optical output of the meter. 
 
-![image](https://user-images.githubusercontent.com/5235430/130195458-b450b9f2-91e7-49ee-b431-72304f5806dd.png)
+# Debug Opions ⚠️
 
-Since I wanted everything to be housed within the breaker box I added a 5V power supply and a DIN Rail case for the Raspberry
-
-![image](https://user-images.githubusercontent.com/5235430/130195208-201f0238-2dce-4dcb-bfc6-be695357eff0.png)
-
-# Debug Opions
-
-Run vzlogger in shell to see any erros 
+In case you run into any erros makre sure to run vzlogger in the shell to see all erros 
 
 ````
 vzlogger -c /etc/vzlogger.conf
 ````
+
+This is also mentioned on the Volkszähler homepage [Debug Volkszähler](https://wiki.volkszaehler.org/howto/debug)
