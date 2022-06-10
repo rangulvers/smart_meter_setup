@@ -82,7 +82,7 @@ cat /dev/ttyUSB0
 
 If the data looks unreadable, your meter returns the data in the SML Format
 
-## Volkszähler
+## 📈 Volkszähler
 
 ### Installation
 
